@@ -1,0 +1,106 @@
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.btn-header {
+  margin: 20px 0;
+
+}
+
+button:hover {
+  border-bottom: 2px solid #56C6AD;
+  max-width: 100px;
+}
+
+.select-currency {
+  width: 547px;
+  height: 50px;
+  background: #F4F5F6;
+}
+
+.amount {
+  margin: 14px 0;
+}
+
+input {
+  width: 547px;
+  height: 50px;
+  background: #F4F5F6;
+
+}
+
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 62px;
+  height: 32px;
+  background: #E0F3EF;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 22px;
+  height: 22px;
+  background: #56C6AD;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + label {
+  background: #E0F3EF;;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 130px;
+}
+
+.info {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.bottom-container {
+  margin-left: 20px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: darkgray;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
