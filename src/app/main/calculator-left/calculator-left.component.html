@@ -1,27 +1,27 @@
 <div class=container>
   <header class="header flex">
-    <div class="btn-header">
-      <button>Lorem 1</button>
+    <div>
+      <button class="header__button">Lorem 1</button>
     </div>
-    <div class="btn-header">
-      <button>Lorem 2</button>
+    <div>
+      <button class="header__button">Lorem 2</button>
     </div>
-    <div class="btn-header">
-      <button>Lorem 3</button>
+    <div>
+      <button class="header__button">Lorem 3</button>
     </div>
-    <div class="btn-header">
-      <button>Lorem 4</button>
+    <div>
+      <button class="header__button">Lorem 4</button>
     </div>
   </header>
   <main>
     <div class="flex flex-column">
-      <div class="amount">
-        <div class="">Amount?</div>
+      <div class="box">
+        <div class="title">Amount?</div>
         <input type="text">
       </div>
-      <div class="amount">
-        <div class="">Currency?</div>
-        <select class="select-currency">
+      <div class="box">
+        <div class="title">Currency?</div>
+        <select class="box__select-currency">
           <option>TUSD (Test US Dollar)</option>
           <option>TUSD (Test US Dollar)</option>
           <option>TUSD (Test US Dollar)</option>
@@ -30,9 +30,9 @@
         </select>
       </div>
     </div>
-    <div class="amount">
-      <div class="">Period?</div>
-      <select>
+    <div class="box">
+      <div class="title">Period?</div>
+      <select class="box__select-period">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -48,23 +48,15 @@
       </select>
     </div>
   </main>
-  <div class=" flex">
-    <div class="flex">
-      <div class="flex flex-align-center">
-        <div class="">Lorem ipsum</div>
-        <div class="tooltip info flex flex-align-center">
-          <img ngSrc="assets/Vector.svg" alt="Vector.svg" height="14" width="14">
-          <span class="tooltiptext">Tooltip text</span>
-        </div>
-      </div>
-      <input type="checkbox" id="switch"/><label for="switch">Toggle</label>
+  <div class="flex flex-align-center">
+    <div class="">Lorem ipsum</div>
+    <div class="">
+      <mat-slide-toggle class="mat-slide-toggle"></mat-slide-toggle>
     </div>
-    <div class="bottom-container flex flex-align-center">
-      <div class="">lorem ipsum dolor sit</div>
-      <div class="tooltip info flex flex-align-center">
-        <img class="info-img" ngSrc="assets/Vector.svg" alt="Vector.svg" height="14" width="14">
-        <span class="tooltiptext">Tooltip text</span>
-      </div>
+    <div class="">Lorem ipsum dolor sit</div>
+    <div class="example-container">
+      <img matTooltip="Tooltip above the element"
+            src="assets/Vector.svg" alt="">
     </div>
   </div>
 </div>
