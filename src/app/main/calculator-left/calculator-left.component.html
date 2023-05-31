@@ -21,13 +21,16 @@
       </div>
       <div class="box">
         <div class="title">Currency?</div>
-        <select class="box__select-currency">
-          <option>TUSD (Test US Dollar)</option>
-          <option>TUSD (Test US Dollar)</option>
-          <option>TUSD (Test US Dollar)</option>
-          <option>TUSD (Test US Dollar)</option>
-          <option>TUSD (Test US Dollar)</option>
-        </select>
+        <mat-form-field>
+          <mat-select>
+            <mat-option
+              *ngFor="let curr of currency"
+              [value]="curr"
+            >
+              {{curr}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
       </div>
     </div>
     <div class="box">
