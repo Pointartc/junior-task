@@ -7,8 +7,12 @@ import { NgOptimizedImage } from '@angular/common';
 import { CalculatorLeftComponent } from './main/calculator-left/calculator-left.component';
 import { CalculatorRightComponent } from './main/calculator-right/calculator-right/calculator-right.component';
 
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatTooltipModule} from '@angular/material/tooltip'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -21,9 +25,15 @@ import {MatTooltipModule} from '@angular/material/tooltip'
     AppRoutingModule,
     NgOptimizedImage,
     MatSlideToggleModule,
-    MatTooltipModule
+    MatTooltipModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

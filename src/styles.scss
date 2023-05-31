@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+
+.border-box {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 .flex {
   display: flex;
 }
@@ -14,8 +21,26 @@
   justify-content: center;
 }
 
+.flex-between {
+  justify-content: space-between;
+}
+
 .container {
-  //margin: 0 auto;
-  //width: 90%;
   padding: 40px 45px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.calculator-box {
+  max-width: 1280px;
+  box-shadow: 0px 0px 40px rgba(86, 198, 173, 0.13);
+  border-radius: 10px;
+  margin: 50px;
 }

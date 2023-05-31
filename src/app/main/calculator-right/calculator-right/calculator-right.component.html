@@ -1,1 +1,35 @@
-<p>calculator-right works!</p>
+<div class="border-box container container-right flex flex-column">
+  <div class="box-right">
+    <div class="title">Profit</div>
+    <div class="sub-title">$29,500</div>
+  </div>
+  <div class="box-right">
+    <div class="title">Percent</div>
+    <div class="sub-title">59%</div>
+    <div class="about">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+  </div>
+  <div class="box-right">
+    <div class="">
+      <div class="flex">
+        <mat-toolbar>
+          <mat-icon class="flex"
+                    *ngFor="let icon of maxRatingArr; let i = index"
+                    (mouseenter)="HandleMouseEnter(i)"
+                    (mouseleave)="HandleMouseLeave()"
+                    (click)="Rating(i)"
+                    [ngClass]="{checked:SelectStar>i}"
+          >star
+          </mat-icon>
+        </mat-toolbar>
+        <button>Lorem ipsum dolor sit</button>
+      </div>
+      <div class="sub-about">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque animi mollitia ipsam quae fuga
+        voluptatibus aut quia autem nulla corrupti suscipit quam, rem veniam, reiciendis, temporibus magni quis velit!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus cumque animi mollitia ipsam quae fuga
+        voluptatibus aut quia autem nulla corrupti suscipit quam, rem veniam, reiciendis, temporibus magni quis velit!
+        Lorem ipsum dolor sit amet consectetur adipisicing
+      </div>
+    </div>
+  </div>
+</div>
