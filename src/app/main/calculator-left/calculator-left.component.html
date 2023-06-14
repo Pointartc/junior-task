@@ -1,33 +1,41 @@
 <div class=container>
   <header class="header flex">
     <div>
-      <button class="header__button">Lorem 1</button>
+      <button mat-button class="header__button">Lorem 1</button>
     </div>
     <div>
-      <button class="header__button">Lorem 2</button>
+      <button mat-button class="header__button">Lorem 2</button>
     </div>
     <div>
-      <button class="header__button">Lorem 3</button>
+      <button mat-button class="header__button">Lorem 3</button>
     </div>
     <div>
-      <button class="header__button">Lorem 4</button>
+      <button mat-button class="header__button">Lorem 4</button>
     </div>
   </header>
   <main>
     <div class="flex flex-column">
       <div class="box">
         <div class="title">Amount?</div>
-        <input type="text">
+        <mat-form-field class="flex">
+          <input [(ngModel)]="inputValue" matInput type="number" step="10">
+          <button mat-button class="box__plus" matSuffix (click)="plusAmount()">+</button>
+          <button mat-button class="box__minus" matSuffix (click)="minusAmount()">-</button>
+        </mat-form-field>
       </div>
       <div class="box">
         <div class="title">Currency?</div>
         <mat-form-field>
+          <mat-label>Currency</mat-label>
           <mat-select>
             <mat-option
               *ngFor="let curr of currency"
-              [value]="curr"
+              [value]="curr.value"
             >
-              {{curr}}
+              <div class="flex">
+                {{curr.viewValue}}
+                <div class="currency__APR">APR {{curr.APR | percent}}</div>
+              </div>
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -35,20 +43,17 @@
     </div>
     <div class="box">
       <div class="title">Period?</div>
-      <select class="box__select-period">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-      </select>
+      <mat-form-field>
+        <mat-label>Period</mat-label>
+        <mat-select>
+          <mat-option
+            *ngFor="let per of period"
+            [value]="per.perValue"
+          >
+            {{per.timePeriod}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </main>
   <div class="flex flex-align-center">

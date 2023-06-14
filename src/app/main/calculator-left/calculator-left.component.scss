@@ -5,7 +5,7 @@ button {
 }
 
 .header {
-  margin: 0 0 45px 0;
+  margin: 0 0 20px 0;
 }
 
 .header__button {
@@ -46,9 +46,6 @@ button:hover {
 input {
   width: 547px;
   height: 50px;
-  background: #F4F5F6;
-  border: none;
-  padding: 0;
 }
 
 
@@ -68,6 +65,28 @@ input[type=checkbox] {
 }
 
 ::ng-deep {
+  .no-hover-effect.mat-button.mat-primary .mat-button-focus-overlay,
+  .no-hover-effect.mat-button.mat-accent .mat-button-focus-overlay,
+  .no-hover-effect.mat-button.mat-warn .mat-button-focus-overlay {
+    background: none !important;
+  }
+
+  .mat-mdc-button {
+    border-radius: 0 !important;
+  }
+
+  .mat-mdc-button .mat-mdc-button-persistent-ripple::before, .mat-mdc-unelevated-button .mat-mdc-button-persistent-ripple::before, .mat-mdc-raised-button .mat-mdc-button-persistent-ripple::before, .mat-mdc-outlined-button .mat-mdc-button-persistent-ripple::before {
+    background: none !important;
+  }
+
+  .mdc-text-field {
+    border-radius: 0 !important;
+  }
+
+  .mat-mdc-button, .mat-mdc-outlined-button {
+    --mat-mdc-button-ripple-color: none !important;
+  }
+
   .mat-mdc-slide-toggle .mdc-switch {
     width: 62px !important;
     margin-right: 15px;
@@ -81,6 +100,14 @@ input[type=checkbox] {
   .mat-mdc-slide-toggle .mdc-switch .mdc-switch__ripple {
     height: 0 !important;
     width: 0 !important;
+  }
+
+  .mdc-text-field__input {
+    width: 100% !important;
+  }
+
+  .mdc-text-field .mdc-text-field__input {
+    caret-color: #56C6AD;
   }
 
   .mdc-switch--selected .mdc-switch__handle-track {
@@ -106,8 +133,80 @@ input[type=checkbox] {
   .mdc-tooltip--shown .mdc-tooltip__surface-animation {
     padding: 10px 15px !important;
     min-width: 350px !important;
-    background: rgba(40,47,44,0.97) !important;
+    background: rgba(40, 47, 44, 0.97) !important;
   }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    width: 547px;
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 15px;
+
+
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #DEF1ED;
+
+  }
+
+
+  ::-webkit-scrollbar-thumb {
+    background: #56C6AD;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #56C6AD;
+  }
+
+  .mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-color: #56C6AD;
+  }
+
+  .mat-mdc-form-field.mat-focused.mat-primary .mat-mdc-select-arrow {
+    color: #56C6AD;
+  }
+
+  .mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: #56C6AD;
+  }
+
+  .mdc-button {
+    min-width: 20px !important;
+    text-align: center;
+    min-height: 20px !important;
+    padding: 0 0 0 2px !important;
+  }
+
+  .mat-mdc-form-field-icon-suffix, [dir=rtl] .mat-mdc-form-field-icon-prefix {
+    padding: 0px 300px 0px 0px !important;
+    display: flex;
+  }
+
+  .mat-mdc-button:not(:disabled) {
+    color: var(--mdc-text-button-label-text-color, inherit);
+  }
+
+  .mat-primary .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    color: #56C6AD;
+  }
+
+  .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
+    color: #56C6AD;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
 }
 
 .info-button {
@@ -118,3 +217,44 @@ input[type=checkbox] {
   color: #56C6AD;
 }
 
+.box__plus {
+  background-color: #56C6AD;
+  width: 19px !important;
+  height: 19px !important;
+  border-radius: 50% !important;
+  text-align: center;
+  font-size: 20px;
+  color: #FFFFFF;
+  margin-right: 5px;
+
+}
+
+.box__minus {
+  background-color: #C75D30;
+  border-radius: 50% !important;
+  width: 19px !important;
+  height: 19px !important;
+  text-align: center;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+
+.box__plus:hover {
+  border: none;
+}
+
+.box__minus:hover {
+  border: none;
+}
+
+.currency__APR {
+  background-color: #56C6AD;
+  border-radius: 4px;
+  max-width: 60px;
+  //max-height: 20px;
+  margin: 0 20px;
+  //color: #FFFFFF;
+  font-size: 12px;
+  padding: 3px 5px;
+  text-align: center;
+}
