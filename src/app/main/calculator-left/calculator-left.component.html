@@ -18,33 +18,46 @@
       <div class="box">
         <div class="title">Amount?</div>
         <mat-form-field class="flex">
-          <input [(ngModel)]="inputValue" matInput type="number" step="10">
+          <input [(ngModel)]="inputValue" matInput type="number" step="10" min="0">
           <button mat-button class="box__plus" matSuffix (click)="plusAmount()">+</button>
           <button mat-button class="box__minus" matSuffix (click)="minusAmount()">-</button>
         </mat-form-field>
       </div>
       <div class="box">
         <div class="title">Currency?</div>
-        <mat-form-field>
-          <mat-label>Currency</mat-label>
-          <mat-select>
-            <mat-option
-              *ngFor="let curr of currency"
-              [value]="curr.value"
-            >
-              <div class="flex">
-                {{curr.viewValue}}
-                <div class="currency__APR">APR {{curr.APR | percent}}</div>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <mat-icon matPrefix>search</mat-icon>
+            <input type="text"
+                   aria-label="Number"
+                   matInput
+                   [formControl]="myControl"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <div class="option__label-box">
+                <mat-label>Lorem ipsum dolor sit amet consectetur adipisicing elit</mat-label>
+                <mat-label>
+                  <div class="option__label-line"></div>
+                </mat-label>
               </div>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+              <mat-option *ngFor="let option of filteredOptions | async"
+                          [value]="option.viewValue + ' ' + (option.APR | percent)">
+                <div class="flex flex-align-center justify-center">
+                  {{option.viewValue}}
+                  <div class="currency__APR">
+                    {{option.APR | percent}}
+                  </div>
+                </div>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
       </div>
     </div>
     <div class="box">
       <div class="title">Period?</div>
       <mat-form-field>
-        <mat-label>Period</mat-label>
+        <!--        <mat-label>Period</mat-label>-->
         <mat-select>
           <mat-option
             *ngFor="let per of period"
@@ -56,7 +69,7 @@
       </mat-form-field>
     </div>
   </main>
-  <div class="flex flex-align-center">
+  <div class="tooltip-box flex flex-align-center">
     <div>Lorem ipsum</div>
     <div class="flex flex-align-center">
       <mat-icon

@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Currency, Period } from '../../shared/interfaces/interfaces'
+import { FormControl } from '@angular/forms';
+import { map, Observable, startWith, Subscription } from 'rxjs';
+import { MatAutocomplete } from '@angular/material/autocomplete';
 
 
 @Component({
@@ -8,10 +11,13 @@ import { Currency, Period } from '../../shared/interfaces/interfaces'
   styleUrls: ['./calculator-left.component.scss']
 })
 
-export class CalculatorLeftComponent {
+export class CalculatorLeftComponent implements OnInit, OnDestroy {
   inputValue: number = 0
+  minNumber: number = 0
+  myControl = new FormControl('');
+  @ViewChild('auto') matAutocomplete!: MatAutocomplete
 
-  currency: Currency[] = [
+  options: Currency[] = [
     { value: 'TUSD', viewValue: 'TUSD (Test US Dollar)', APR: 0.13 },
     { value: 'TEUR', viewValue: 'TEUR (Test Euro)', APR: 0.12 },
     { value: 'TCNY', viewValue: 'TCNY (Test Chinese Yuan)', APR: 0.22 },
@@ -31,7 +37,7 @@ export class CalculatorLeftComponent {
     { value: 'TBRL', viewValue: 'TBRL (Test Brazilian Real)', APR: 0.12 },
     { value: 'TIDR', viewValue: 'TIDR (Test Indonesian Rupiah)', APR: 0.23 },
     { value: 'TUSD', viewValue: 'TUSD (Test US Dollar)', APR: 0.34 }
-  ]
+  ];
 
   period: Period[] = [
     { timePeriod: 1, perValue: 1 },
@@ -49,13 +55,39 @@ export class CalculatorLeftComponent {
   ]
 
   minusAmount() {
-    console.log('-')
-    this.inputValue--
+    if (this.inputValue > 0) {
+      this.inputValue--
+    }
   }
 
   plusAmount() {
-    console.log('+')
     this.inputValue++
   }
+
+
+  filteredOptions!: Observable<Currency[]>;
+
+  private valueChangesSubscription: Subscription | undefined;
+
+
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this.filterOptions(value as string))
+    )
+    this.valueChangesSubscription = this.filteredOptions.subscribe()
+  }
+
+  filterOptions(value: string): Currency[] {
+    const filterValue = value.toLowerCase()
+    return this.options.filter(option => option.viewValue.toLowerCase().includes(filterValue))
+  }
+
+  ngOnDestroy() {
+    if (this.valueChangesSubscription) {
+      this.valueChangesSubscription.unsubscribe();
+    }
+  }
+
 
 }
