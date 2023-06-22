@@ -205,11 +205,14 @@ input[type=checkbox] {
   .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
     padding-top: 15px !important;
     padding-bottom: 8px !important;
-    text-align: center !important;
   }
 
   .mat-mdc-form-field-icon-prefix > .mat-icon, .mat-mdc-form-field-icon-suffix > .mat-icon {
     color: #AEB7B5 !important;
+  }
+
+  .currency__APR[_ngcontent-ng-c2563389901] {
+    text-align: center;
   }
 
   input[type="number"]::-webkit-inner-spin-button,
