@@ -16,47 +16,78 @@
   <main>
     <div class="flex flex-column">
       <div class="box">
-        <div class="title">Amount?</div>
-        <mat-form-field class="flex">
-          <input [(ngModel)]="inputValue" matInput type="number" step="10">
-          <button mat-button class="box__plus" matSuffix (click)="plusAmount()">+</button>
-          <button mat-button class="box__minus" matSuffix (click)="minusAmount()">-</button>
-        </mat-form-field>
-      </div>
-      <div class="box">
-        <div class="title">Currency?</div>
-        <mat-form-field>
-          <mat-label>Currency</mat-label>
-          <mat-select>
-            <mat-option
-              *ngFor="let curr of currency"
-              [value]="curr.value"
-            >
-              <div class="flex">
-                {{curr.viewValue}}
-                <div class="currency__APR">APR {{curr.APR | percent}}</div>
-              </div>
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <form [formGroup]="GroupControl" class="example-form">
+          <div class="box">
+            <div class="title">Amount?</div>
+            <mat-form-field class="flex">
+              <input matInput type="number" min="1000" max="1000000" [(ngModel)]="inputValue" name="amount"
+                     formControlName="amount">
+              <mat-error *ngIf="isInvalidAmount()">Invalid amount. Minimum: 1000, Maximum: 1000000</mat-error>
+              <button mat-button class="box__plus" matSuffix (click)="plusAmount()">+</button>
+              <button mat-button class="box__minus" matSuffix (click)="minusAmount()">-</button>
+            </mat-form-field>
+          </div>
+          <div class="box">
+            <div class="title">Currency?</div>
+            <mat-form-field class="example-full-width">
+              <mat-icon matPrefix>search</mat-icon>
+              <input type="number"
+                     aria-label="Number"
+                     matInput
+                     [matAutocomplete]="auto"
+                     formControlName="currency"
+                     [(ngModel)]="selectedCurrency"
+              >
+              <mat-autocomplete
+                autoActiveFirstOption
+                #auto="matAutocomplete">
+                <div class="option__label-box">
+                  <mat-label>Lorem ipsum dolor sit amet consectetur adipisicing elit</mat-label>
+                  <mat-label>
+                    <div class="option__label-line"></div>
+                  </mat-label>
+                </div>
+                <mat-option
+                  *ngFor="let Apr of options"
+                  [value]="Apr.APR"
+                >
+                  <div class="flex flex-align-center justify-center">
+
+                    <div class="currency__APR">
+                      {{Apr.APR }}
+                    </div>
+                  </div>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+          <div class="box">
+            <div class="title">Period?</div>
+            <mat-form-field>
+              <mat-select
+                formControlName="period"
+                [(ngModel)]="selectedPeriod"
+              >
+                <mat-option
+                  *ngFor="let period of period"
+                  [value]="period.perValue"
+                >
+                  {{period.timePeriod}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
       </div>
     </div>
     <div class="box">
-      <div class="title">Period?</div>
-      <mat-form-field>
-        <mat-label>Period</mat-label>
-        <mat-select>
-          <mat-option
-            *ngFor="let per of period"
-            [value]="per.perValue"
-          >
-            {{per.timePeriod}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="title">Profit</div>
+      <div class="title">
+        {{calculateProfit()}}
+      </div>
     </div>
   </main>
-  <div class="flex flex-align-center">
+  <div class="tooltip-box flex flex-align-center">
     <div>Lorem ipsum</div>
     <div class="flex flex-align-center">
       <mat-icon

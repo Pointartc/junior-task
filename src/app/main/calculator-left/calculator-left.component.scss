@@ -25,6 +25,7 @@ button:hover {
 
 .title {
   margin-bottom: 12px;
+  color: #000000;
 }
 
 .box__select-currency {
@@ -201,6 +202,19 @@ input[type=checkbox] {
     color: #56C6AD;
   }
 
+  .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+    padding-top: 15px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .mat-mdc-form-field-icon-prefix > .mat-icon, .mat-mdc-form-field-icon-suffix > .mat-icon {
+    color: #AEB7B5 !important;
+  }
+
+  .currency__APR[_ngcontent-ng-c2563389901] {
+    text-align: center;
+  }
+
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -209,12 +223,17 @@ input[type=checkbox] {
 
 }
 
+.tooltip-box {
+  color: #000000;
+}
+
 .info-button {
   margin: 0 35px 0 10px;
+  color: #000 !important;
 }
 
 .info-button:hover {
-  color: #56C6AD;
+  color: #56C6AD !important;
 }
 
 .box__plus {
@@ -224,7 +243,7 @@ input[type=checkbox] {
   border-radius: 50% !important;
   text-align: center;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   margin-right: 5px;
 
 }
@@ -236,7 +255,7 @@ input[type=checkbox] {
   height: 19px !important;
   text-align: center;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 .box__plus:hover {
@@ -250,11 +269,23 @@ input[type=checkbox] {
 .currency__APR {
   background-color: #56C6AD;
   border-radius: 4px;
-  max-width: 60px;
-  //max-height: 20px;
+  min-width: 60px;
   margin: 0 20px;
-  //color: #FFFFFF;
+  color: #FFFFFF;
   font-size: 12px;
   padding: 3px 5px;
-  text-align: center;
+}
+
+.option__label-line {
+  width: 490px;
+  height: 1px;
+  border-bottom: solid #E6E9ED 1px;
+  margin: 14px 0;
+  background: #E6E9ED;
+}
+
+.option__label-box {
+  margin: 27px 24px !important;
+  color: #AEB7B5;
+
 }
